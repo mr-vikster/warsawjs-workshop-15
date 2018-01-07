@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		playerB: 'blue'
 	}
 	let names = {
-		playerA: 'playerA',
-		playerB: 'playerB'
+		playerA: 'Player 1',
+		playerB: 'Player 2'
 	}
 	let reset = document.querySelector('.reset').addEventListener('click', () => {
 		redDefault = redScore.innerHTML = 0;
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 	initGame();
 	function initGame() {
-		currentPlayer = 'playerA';
+		currentPlayer = 'Player 1';
 		emptyFields = 9;
 		fields.forEach(field => {
 			field.addEventListener('click', fieldClickHandler);
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		this.classList.add(playerClass);
 		headerInfo.classList.remove(playerClasses[currentPlayer]);		
 		headerInfo.classList.remove(headerClasses[currentPlayer]);				
-		currentPlayer === 'playerA' ? currentPlayer = 'playerB' : currentPlayer = 'playerA';
+		currentPlayer === 'Player 1' ? currentPlayer = 'Player 2' : currentPlayer = 'Player 1';
 		this.removeEventListener('click', fieldClickHandler);	
 		emptyFields--;
 		checkWinner();
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (redWon) {
 			setTimeout(()=> {
 				headerInfo.classList = '';
-				headerInfo.innerHTML = 'Round for playerA';
+				headerInfo.innerHTML = 'Round for Player 1';
 				alert('Player 1 won!');
 				redDefault++;
 				redScore.innerHTML = redDefault;
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		else if (blueWon) {
 			setTimeout(()=> {
 				headerInfo.classList = '';
-				headerInfo.innerHTML = 'Round for playerA';
+				headerInfo.innerHTML = 'Round for Player 1';
 				alert('Player 2 won!');
 				blueDefault++;				
 				blueScore.innerHTML = blueDefault;
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		else if (emptyFields === 0) {
 			setTimeout(()=> {
 				headerInfo.classList = '';
-				headerInfo.innerHTML = 'Round for playerA';
+				headerInfo.innerHTML = 'Round for Player 1';
 				alert('GAME OVER');
 				initGame();
 			},500);
