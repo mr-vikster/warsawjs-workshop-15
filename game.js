@@ -14,6 +14,7 @@ let reset = document.querySelector('.reset').addEventListener('click', () => {
 	redDefault = redScore.innerHTML = 0;
 	blueDefault = blueScore.innerHTML = 0;
 });
+let headerInfo = document.querySelector('header');
 	initGame();
 	function initGame() {
 		currentPlayer = 'playerA';
@@ -22,21 +23,19 @@ let reset = document.querySelector('.reset').addEventListener('click', () => {
 			field.addEventListener('click', fieldClickHandler);
 			field.className = '';
 		});
-		/* reset.addEventListener('click', () => {
-			console.log(reset);
-			redScore.innerHTML = 0;
-			blueScore.innerHTML = 0;
-		}); */
 	};
 	function fieldClickHandler () {
 		let playerClass = playerClasses[currentPlayer];
 		this.classList.add(playerClass);
+		headerInfo.classList.remove(playerClasses[currentPlayer]);		
 		currentPlayer === 'playerA' ? currentPlayer = 'playerB' : currentPlayer = 'playerA';
 		this.removeEventListener('click', fieldClickHandler);	
 		emptyFields--;
 		checkWinner();
 	};
 	function checkWinner () {
+		headerInfo.classList.add(playerClasses[currentPlayer]);
+		headerInfo.innerHTML = `Round for ${currentPlayer}`;
 		let winningArray = 
 		[
 		fields[0].className + fields[1].className + fields[2].className,
@@ -53,15 +52,18 @@ let reset = document.querySelector('.reset').addEventListener('click', () => {
 
 		if (redWon) {
 			setTimeout(()=> {
+				headerInfo.classList = '';
+				headerInfo.innerHTML = 'Round for playerA';
 				alert('Player 1 won!');
 				redDefault++;
 				redScore.innerHTML = redDefault;
-				console.log(redDefault)
 				initGame();
 			},100);
 		} 
 		else if (blueWon) {
 			setTimeout(()=> {
+				headerInfo.classList = '';
+				headerInfo.innerHTML = 'Round for playerA';
 				alert('Player 2 won!');
 				blueDefault++;				
 				blueScore.innerHTML = blueDefault;
@@ -70,6 +72,8 @@ let reset = document.querySelector('.reset').addEventListener('click', () => {
 		} 
 		else if (emptyFields === 0) {
 			setTimeout(()=> {
+				headerInfo.classList = '';
+				headerInfo.innerHTML = 'Round for playerA';
 				alert('GAME OVER');
 				initGame();
 			},100);

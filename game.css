@@ -1,5 +1,6 @@
 * {
 	box-sizing: border-box;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 body {
 	display: flex;
@@ -10,6 +11,15 @@ body {
 	height:100vh;
 	overflow:hidden;
 	background-color: ghostwhite;
+}
+header {
+	width: 100vw;
+	height: 3em;
+	margin: 2em;
+	text-align: center;
+	line-height: 3em;
+	font-size: 2em;
+	background-color: crimson;
 }
 .board {
 	height: 302px;
@@ -28,10 +38,12 @@ body {
 
 .red {
 	background-color: crimson;
+	transition: all .5s;
 }
 
 .blue {
 	background-color: cornflowerblue;
+	transition: all .5s;	
 }
 
 .controls {
@@ -42,7 +54,7 @@ body {
 	width: 302px;
 	margin-top: 1em;
 }
-.score span {
+.score span:last-child {
 	padding-left: .9em;
 }
 .reset {
