@@ -1,20 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
-const playerClasses = {
-	playerA: 'red',
-	playerB: 'blue'
-}
-let currentPlayer;
-let emptyFields;
-let fields = document.querySelectorAll('.board > div');
-let redDefault = 0;
-let blueDefault = 0;
-let redScore = document.querySelector('#scoreOne');
-let blueScore = document.querySelector('#scoreTwo');
-let reset = document.querySelector('.reset').addEventListener('click', () => {
-	redDefault = redScore.innerHTML = 0;
-	blueDefault = blueScore.innerHTML = 0;
-});
-let headerInfo = document.querySelector('header');
+	let currentPlayer;
+	let emptyFields;
+	let redDefault = 0;
+	let blueDefault = 0;
+	let fields = document.querySelectorAll('.board > div');
+	let redScore = document.querySelector('#scoreOne');
+	let blueScore = document.querySelector('#scoreTwo');
+	let headerInfo = document.querySelector('header');
+	const playerClasses = {
+		playerA: 'red',
+		playerB: 'blue'
+	}
+	let reset = document.querySelector('.reset').addEventListener('click', () => {
+		redDefault = redScore.innerHTML = 0;
+		blueDefault = blueScore.innerHTML = 0;
+	});
 	initGame();
 	function initGame() {
 		currentPlayer = 'playerA';

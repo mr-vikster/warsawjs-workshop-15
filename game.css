@@ -5,7 +5,7 @@
 body {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	width:100vw;
 	height:100vh;
@@ -15,11 +15,11 @@ body {
 header {
 	width: 100vw;
 	height: 3em;
-	margin: 2em;
 	text-align: center;
 	line-height: 3em;
 	font-size: 2em;
 	background-color: crimson;
+	color: ghostwhite;
 }
 .board {
 	height: 302px;
@@ -54,10 +54,25 @@ header {
 	width: 302px;
 	margin-top: 1em;
 }
-.score span:last-child {
-	padding-left: .9em;
+.score {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 302px;
+	margin-bottom: 1em;
+	font-size: 1.4em;
+	color: grey;
 }
-.reset {
+.score > div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+}
+.score span {
+	padding-left: .5em;
+}
+button {
 	height: 3em;
 	width: 7em;
 	border: 1px solid;
@@ -66,9 +81,14 @@ header {
 	cursor: pointer;
 	background-color: #fff;
 }
-.reset:hover {
+button:hover {
 	opacity: .7;
 }
-.reset:active {
+button:active {
 	opacity: .5;
+}
+.reset {
+	color: ghostwhite;
+	background-color: crimson;
+	text-transform: uppercase;
 }
