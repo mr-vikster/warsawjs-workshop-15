@@ -8,8 +8,16 @@ document.addEventListener('DOMContentLoaded', function () {
 	let blueScore = document.querySelector('#scoreTwo');
 	let headerInfo = document.querySelector('header');
 	const playerClasses = {
+		playerA: 'red-path',
+		playerB: 'blue-path'
+	}
+	const headerClasses = {
 		playerA: 'red',
 		playerB: 'blue'
+	}
+	let names = {
+		playerA: 'playerA',
+		playerB: 'playerB'
 	}
 	let reset = document.querySelector('.reset').addEventListener('click', () => {
 		redDefault = redScore.innerHTML = 0;
@@ -34,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		checkWinner();
 	};
 	function checkWinner () {
-		headerInfo.classList.add(playerClasses[currentPlayer]);
+		headerInfo.classList.add(headerClasses[currentPlayer]);
 		headerInfo.innerHTML = `Round for ${currentPlayer}`;
 		let winningArray = 
 		[
@@ -47,8 +55,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		fields[0].className + fields[4].className + fields[8].className,
 		fields[2].className + fields[4].className + fields[6].className
 		]
-		let redWon = winningArray.includes('redredred');
-		let blueWon = winningArray.includes('blueblueblue');
+		let redWon = winningArray.includes('red-pathred-pathred-path');
+		let blueWon = winningArray.includes('blue-pathblue-pathblue-path');
 
 		if (redWon) {
 			setTimeout(()=> {
@@ -58,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				redDefault++;
 				redScore.innerHTML = redDefault;
 				initGame();
-			},100);
+			},500);
 		} 
 		else if (blueWon) {
 			setTimeout(()=> {
@@ -68,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				blueDefault++;				
 				blueScore.innerHTML = blueDefault;
 				initGame();
-			},100);
+			},500);
 		} 
 		else if (emptyFields === 0) {
 			setTimeout(()=> {
@@ -76,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				headerInfo.innerHTML = 'Round for playerA';
 				alert('GAME OVER');
 				initGame();
-			},100);
+			},500);
 		}
 	}
 });

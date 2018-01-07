@@ -34,16 +34,27 @@ header {
 	width: 100px;
 	display: inline-block;
 	border: 1px solid grey;
+	cursor: pointer;
 }
 
 .red {
 	background-color: crimson;
+}
+.red-path {
+	background-color: crimson;	
 	transition: all .5s;
+	clip-path: polygon(23% 5%, 5% 23%, 32% 50%, 6% 74%, 24% 94%, 50% 68%, 76% 94%, 94% 75%, 68% 50%, 95% 23%, 77% 5%, 50% 32%);
+	border: 1px solid grey;
 }
 
 .blue {
 	background-color: cornflowerblue;
+}
+.blue-path {
+	background-color: cornflowerblue;	
 	transition: all .5s;	
+	clip-path: circle(49% at 50% 50%);
+	border: 1px solid grey;	
 }
 
 .controls {
