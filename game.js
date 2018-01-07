@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		let playerClass = playerClasses[currentPlayer];
 		this.classList.add(playerClass);
 		headerInfo.classList.remove(playerClasses[currentPlayer]);		
+		headerInfo.classList.remove(headerClasses[currentPlayer]);				
 		currentPlayer === 'playerA' ? currentPlayer = 'playerB' : currentPlayer = 'playerA';
 		this.removeEventListener('click', fieldClickHandler);	
 		emptyFields--;
