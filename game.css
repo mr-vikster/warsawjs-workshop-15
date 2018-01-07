@@ -1,7 +1,16 @@
 * {
 	box-sizing: border-box;
 }
-
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width:100vw;
+	height:100vh;
+	overflow:hidden;
+	background-color: ghostwhite;
+}
 .board {
 	height: 302px;
 	width: 302px;
@@ -23,4 +32,11 @@
 
 .blue {
 	background-color: cornflowerblue;
+}
+
+.controls {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 302px;
 }
