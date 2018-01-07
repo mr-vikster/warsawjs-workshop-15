@@ -3,10 +3,11 @@
 }
 
 .board {
-	height: 300px;
-	width: 300px;
+	height: 302px;
+	width: 302px;
 	margin: 0 auto;
 	font-size: 0;
+	border: 1px solid grey;
 }
 
 .board div {
