@@ -38,5 +38,25 @@ body {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	align-items: center;
 	width: 302px;
+	margin-top: 1em;
+}
+.score span {
+	padding-left: .9em;
+}
+.reset {
+	height: 3em;
+	width: 7em;
+	border: 1px solid;
+	border-radius: .5em;
+	outline: none;
+	cursor: pointer;
+	background-color: #fff;
+}
+.reset:hover {
+	opacity: .7;
+}
+.reset:active {
+	opacity: .5;
 }
