@@ -8,16 +8,16 @@ document.addEventListener('DOMContentLoaded', function () {
 	let blueScore = document.querySelector('#scoreTwo');
 	let headerInfo = document.querySelector('header');
 	const playerClasses = {
-		playerA: 'red-path',
-		playerB: 'blue-path'
+		'Player A': 'red-field',
+		'Player B': 'blue-field'
 	}
 	const headerClasses = {
-		playerA: 'red',
-		playerB: 'blue'
+		'Player A': 'red',
+		'Player B': 'blue'
 	}
 	let names = {
-		playerA: 'playerA',
-		playerB: 'playerB'
+		playerA: 'Player A',
+		playerB: 'Player B'
 	}
 	let reset = document.querySelector('.reset').addEventListener('click', () => {
 		redDefault = redScore.innerHTML = 0;
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 	initGame();
 	function initGame() {
-		currentPlayer = 'playerA';
+		currentPlayer = 'Player A';
 		emptyFields = 9;
 		fields.forEach(field => {
 			field.addEventListener('click', fieldClickHandler);
@@ -35,9 +35,9 @@ document.addEventListener('DOMContentLoaded', function () {
 	function fieldClickHandler () {
 		let playerClass = playerClasses[currentPlayer];
 		this.classList.add(playerClass);
-		headerInfo.classList.remove(playerClasses[currentPlayer]);		
-		headerInfo.classList.remove(headerClasses[currentPlayer]);				
-		currentPlayer === 'playerA' ? currentPlayer = 'playerB' : currentPlayer = 'playerA';
+		headerInfo.classList.remove(playerClasses[currentPlayer]);			
+		headerInfo.classList.remove(headerClasses[currentPlayer]);			
+		currentPlayer = currentPlayer === 'Player A' ? 'Player B' : 'Player A';
 		this.removeEventListener('click', fieldClickHandler);	
 		emptyFields--;
 		checkWinner();
@@ -56,36 +56,36 @@ document.addEventListener('DOMContentLoaded', function () {
 		fields[0].className + fields[4].className + fields[8].className,
 		fields[2].className + fields[4].className + fields[6].className
 		]
-		let redWon = winningArray.includes('red-pathred-pathred-path');
-		let blueWon = winningArray.includes('blue-pathblue-pathblue-path');
+		let redWon = winningArray.includes('red-fieldred-fieldred-field');
+		let blueWon = winningArray.includes('blue-fieldblue-fieldblue-field');
 
 		if (redWon) {
 			setTimeout(()=> {
 				headerInfo.classList = '';
-				headerInfo.innerHTML = 'Round for playerA';
-				alert('Player 1 won!');
+				headerInfo.innerHTML = 'Round for Player A';
+				alert('Player A won!');
 				redDefault++;
 				redScore.innerHTML = redDefault;
 				initGame();
-			},500);
+			},100);
 		} 
 		else if (blueWon) {
 			setTimeout(()=> {
 				headerInfo.classList = '';
-				headerInfo.innerHTML = 'Round for playerA';
-				alert('Player 2 won!');
+				headerInfo.innerHTML = 'Round for Player A';
+				alert('Player B won!');
 				blueDefault++;				
 				blueScore.innerHTML = blueDefault;
 				initGame();
-			},500);
+			},100);
 		} 
 		else if (emptyFields === 0) {
 			setTimeout(()=> {
 				headerInfo.classList = '';
-				headerInfo.innerHTML = 'Round for playerA';
+				headerInfo.innerHTML = 'Round for Player A';
 				alert('GAME OVER');
 				initGame();
-			},500);
+			},100);
 		}
 	}
 });
